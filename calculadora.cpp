@@ -34,15 +34,37 @@ double GradosToRadians( int degrees){
 
 int main(){
     int decimalNumber;
-    cout << "ingrese un numero en decimal" << endl;
-    cin >> decimalNumber;
+    char opcion;
 
-    string binary = DecimalTobinary(decimalNumber);
-    string hexadecimal = DecimalToHexadecimal(decimalNumber);
-    double radians = GradosToRadians(decimalNumber);
+    do{
+        #ifdef _WIN32
+            system("cls"); //limpiar pantalla en windows 
+        #else
+            system("clear"); //limpiar pantalla en linux
+        #endif
 
-    cout << "Resultados:\n";
-    cout << "Binario:" << binary << "\n";
-    cout << "Hexadecimal:" << hexadecimal << "\n";
-    cout << "Radianes:" << radians << "\n";
+        cout << "=============================\n";
+        cout << " Calculadora de Conversiones \n";
+        cout << "=============================\n";
+
+        cout << "Ingrese un numero decimal: ";
+        cin >> decimalNumber;
+
+        string binary = DecimalTobinary(decimalNumber);
+        string hexadecimal = DecimalToHexadecimal(decimalNumber);
+        double radians = GradosToRadians(decimalNumber);
+
+        cout << "Resultados:\n";
+        cout << "Binario:" << binary << "\n";
+        cout << "Hexadecimal:" << hexadecimal << "\n";
+        cout << "Radianes:" << radians << "\n";
+
+        cout << "\n Desea realizar otra operacion? (s/n): ";
+        cin >> opcion;
+    }
+    while (opcion == 's' || opcion == 'S'); // Continuar si el usuario ingresa 's' o 'S'
+
+    cout << "Gracias por usar la calculadora. Hasta luego!!!\n";
+   
+
 }
